@@ -317,7 +317,7 @@ function addItemsToTimeline() {
 
 /* ===========================
    MUSIQUE DE FOND
-   =========================== */
+   =========================== 
 
 const audio = document.getElementById("bgMusic");
 
@@ -347,3 +347,4 @@ if (audio) {
   document.addEventListener("touchstart", enableSound);
 }
 
+*/
