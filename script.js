@@ -324,26 +324,31 @@ const audio = document.getElementById("bgMusic");
 const startTime = 13;
 const endTime = 32;
 
-// Sécurité si l'audio existe bien
 if (audio) {
-  audio.currentTime = startTime;
+  // Fonction pour initialiser et démarrer la musique
+  function initAudio() {
+    audio.currentTime = startTime;
+    audio.volume = 0.5; // Volume à 50%
+    
+    audio.play().catch(err => {
+      console.log("Autoplay bloqué, attente d'interaction utilisateur");
+    });
+    
+    // Retire les écouteurs après le premier démarrage
+    document.removeEventListener("click", initAudio);
+    document.removeEventListener("touchstart", initAudio);
+    document.removeEventListener("keydown", initAudio);
+  }
 
+  // Gestion de la boucle sur la plage définie
   audio.addEventListener("timeupdate", () => {
     if (audio.currentTime >= endTime) {
       audio.currentTime = startTime;
-      audio.play();
     }
   });
 
-  // Active le son au premier geste utilisateur
-  function enableSound() {
-    audio.muted = false;
-    audio.play();
-    document.removeEventListener("click", enableSound);
-    document.removeEventListener("touchstart", enableSound);
-  }
-
-  document.addEventListener("click", enableSound);
-  document.addEventListener("touchstart", enableSound);
+  // Démarre la musique au premier geste utilisateur
+  document.addEventListener("click", initAudio);
+  document.addEventListener("touchstart", initAudio);
+  document.addEventListener("keydown", initAudio);
 }
-
