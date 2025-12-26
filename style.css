@@ -10,7 +10,7 @@ body {
 
 .callout {
   position: absolute;
-  font-size: 50px;
+  font-size: clamp(32px, 8vw, 50px); /* S'adapte à l'écran */
   top: 52%;
   left: 50%;
   font-weight: 900;
@@ -19,11 +19,12 @@ body {
   text-align: center;
   transform: translate(-50%, -50%);
   white-space: nowrap;
+  padding: 0 20px; /* Espacement sur les côtés */
 }
 
 .subtitle {
   position: absolute;
-  font-size: 20px;
+  font-size: clamp(16px, 4vw, 20px); /* S'adapte à l'écran */
   top: 52%;
   left: 50%;
   margin-top: 50px;
@@ -32,6 +33,34 @@ body {
   z-index: 999;
   text-align: center;
   transform: translate(-50%, -50%);
+  padding: 0 20px; /* Espacement sur les côtés */
+}
+
+/* Ajustements spécifiques pour mobile */
+@media (max-width: 768px) {
+  .callout {
+    font-size: clamp(28px, 10vw, 40px);
+    white-space: normal; /* Permet le retour à la ligne si nécessaire */
+    max-width: 90%;
+  }
+  
+  .subtitle {
+    font-size: clamp(14px, 5vw, 18px);
+    margin-top: 60px; /* Plus d'espace en dessous du titre */
+    max-width: 90%;
+  }
+}
+
+/* Pour les très petits écrans */
+@media (max-width: 480px) {
+  .callout {
+    font-size: clamp(24px, 12vw, 36px);
+  }
+  
+  .subtitle {
+    font-size: clamp(12px, 6vw, 16px);
+    margin-top: 70px;
+  }
 }
 
 .panel1 {
