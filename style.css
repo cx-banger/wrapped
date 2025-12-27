@@ -179,7 +179,7 @@ body {
   width: 300px;
   height: 300px;
   object-fit: cover;
-  border-radius: 2px; /* Coins arrondis */
+  border-radius: 200px; /* Coins arrondis */
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); /* Ombre pour le relief */
   z-index: 998; /* Juste en dessous du texte */
   opacity: 0; /* Invisible au départ */
@@ -227,6 +227,69 @@ body {
   }
   
   .song-title {
+    margin-top: 115px; /* 150px/2 + 35px */
+    font-size: 20px;
+    max-width: 90%;
+  }
+}
+
+
+/* Deuxième cover - mêmes styles que le premier */
+.cover-image-2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 2px; /* Coins arrondis */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); /* Ombre pour le relief */
+  z-index: 998; /* Juste en dessous du texte */
+  opacity: 0; /* Invisible au départ */
+  pointer-events: none;
+}
+
+.song-title-2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 185px; /* Petit espace sous le cover (300px/2 + 35px) */
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 900;
+  text-align: center; /* Centré horizontalement */
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  /* text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8); */
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .cover-image-2 {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .song-title-2 {
+    margin-top: 135px;
+    font-size: 24px;
+    max-width: 90%;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 480px) {
+  .cover-image-2 {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .song-title-2 {
     margin-top: 115px; /* 150px/2 + 35px */
     font-size: 20px;
     max-width: 90%;
