@@ -10,9 +10,8 @@ body {
 
 .callout {
   position: absolute;
-  /* clamp(taille-min, taille-adaptative, taille-max) */
-  font-size: clamp(50px, 8vw, 80px); /* S'adapte à l'écran */
-  top: 52%;
+  font-size: 50px;
+  top: 48%; /* Réduisez de 52% à 48% pour monter le texte */
   left: 50%;
   font-weight: 900;
   color: white;
@@ -20,21 +19,19 @@ body {
   text-align: center;
   transform: translate(-50%, -50%);
   white-space: nowrap;
-  padding: 0 20px; /* Espacement sur les côtés */
 }
 
 .subtitle {
   position: absolute;
-  font-size: clamp(24px, 4vw, 34px); /* S'adapte à l'écran */
-  top: 52%;
+  font-size: 20px;
+  top: 48%; /* Même valeur que callout */
   left: 50%;
-  margin-top: 50px;
+  margin-top: 70px; /* Espacement sous "Wrapped 2025" */
   font-weight: 400;
   color: white;
   z-index: 999;
   text-align: center;
   transform: translate(-50%, -50%);
-  padding: 0 20px; /* Espacement sur les côtés */
 }
 
 /* Ajustements spécifiques pour mobile */
