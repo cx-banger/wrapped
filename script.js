@@ -369,8 +369,8 @@ function addItemsToTimeline() {
 
 const audio = document.getElementById("bgMusic");
 
-const startTime = 10;
-const endTime = 37;
+const startTime = 10;  // Tempo du début du morceau
+const endTime = 37;    // Tempo de fin du morceau
 
 // Sécurité si l'audio existe bien
 if (audio) {
