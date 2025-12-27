@@ -9,6 +9,7 @@ let elWidth = window.innerWidth / numberOfPanels;
 const textCallout = document.querySelector(".callout");
 const textSub = document.querySelector(".subtitle");
 const coverImage = document.querySelector(".cover-image");
+const songTitle = document.querySelector(".song-title");
 
 var tl = gsap.timeline({ repeat: -1 });
 
@@ -78,11 +79,11 @@ function addItemsToTimeline() {
     4
   );
 
-  // ===== ANIMATION DE L'IMAGE COVER =====
-  if (coverImage) {
-    // Apparition de l'image au moment de la mosaïque
+  // ===== ANIMATION DE L'IMAGE COVER ET DU TITRE =====
+  if (coverImage && songTitle) {
+    // Apparition du cover et du titre ensemble
     tl.fromTo(
-      coverImage,
+      [coverImage, songTitle],
       {
         opacity: 0,
         scale: 0.5,
@@ -98,9 +99,9 @@ function addItemsToTimeline() {
       5.5 // Timing d'apparition
     );
 
-    // Légère rotation pendant qu'elle est visible
+    // Légère rotation pendant qu'ils sont visibles
     tl.to(
-      coverImage,
+      [coverImage, songTitle],
       {
         rotation: 3,
         duration: 2,
@@ -111,9 +112,9 @@ function addItemsToTimeline() {
       ">"
     );
 
-    // Disparition de l'image
+    // Disparition du cover et du titre ensemble
     tl.to(
-      coverImage,
+      [coverImage, songTitle],
       {
         opacity: 0,
         scale: 1.5,
@@ -124,7 +125,7 @@ function addItemsToTimeline() {
       "+=2"
     );
   }
-  // ===== FIN ANIMATION IMAGE =====
+  // ===== FIN ANIMATION IMAGE ET TITRE =====
 
   panels.forEach((panel, i) => {
     const stopPosition = 100 - i * 1;
