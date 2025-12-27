@@ -189,11 +189,37 @@ body {
   pointer-events: none;
 }
 
-/* Responsive pour mobile */
+
+.song-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 185px; /* Petit espace sous le cover (300px/2 + 35px) */
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 900;
+  text-align: center; /* Centré horizontalement */
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  /* text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8); */
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
 @media (max-width: 768px) {
   .cover-image {
     width: 350px;
     height: 350px;
+  }
+  
+  .song-title {
+    margin-top: 135px; /* 200px/2 + 35px */
+    font-size: 24px;
+    max-width: 90%;
+    white-space: normal;
   }
 }
 
@@ -201,5 +227,11 @@ body {
   .cover-image {
     width: 200px;
     height: 200px;
+  }
+  
+  .song-title {
+    margin-top: 115px; /* 150px/2 + 35px */
+    font-size: 20px;
+    max-width: 90%;
   }
 }
