@@ -105,7 +105,7 @@ function addItemsToTimeline() {
 
     // Animation du nom d'artiste circulaire (si présent)
     if (artistNameCircle) {
-      // Apparition du nom circulaire en même temps que le cover
+      // Apparition du nom circulaire
       tl.fromTo(
         artistNameCircle,
         {
@@ -118,23 +118,22 @@ function addItemsToTimeline() {
           duration: 1,
           ease: "back.out(1.7)"
         },
-        5.5 // Même timing que le cover
+        5.5 // Même timing
       );
 
-      // Rotation continue du nom de l'artiste autour du cover
+      // Rotation continue du nom
       tl.to(
         artistNameCircle,
         {
-          rotation: 360,
-          duration: 8,
-          ease: "linear", // Vitesse constante
-          repeat: -1 // Répète à l'infini
+          rotation: 360, // 1 tour complet
+          duration: 6,
+          ease: "linear"
         },
-        5.5 // Commence dès l'apparition
+        5.5
       );
     }
 
-    // Légère rotation du cover et titre pendant qu'ils sont visibles
+    // Légère rotation pendant qu'ils sont visibles - RÉDUIT
     tl.to(
       [coverImage, songTitle],
       {
@@ -142,12 +141,12 @@ function addItemsToTimeline() {
         duration: 2,
         ease: "sine.inOut",
         yoyo: true,
-        repeat: 2
+        repeat: 1 // Réduit à 1 au lieu de 2
       },
       ">"
     );
 
-    // Disparition du cover et du titre
+    // Disparition du cover et du titre ensemble - RÉDUIT LE DÉLAI
     tl.to(
       [coverImage, songTitle],
       {
@@ -157,10 +156,10 @@ function addItemsToTimeline() {
         duration: 1,
         ease: "power2.in"
       },
-      "+=0"
+      "+=0.5" // Réduit de 2 à 0.5 pour durée totale ~8-9 sec
     );
 
-    // Disparition du nom circulaire (si présent)
+    // Disparition du nom circulaire
     if (artistNameCircle) {
       tl.to(
         artistNameCircle,
@@ -170,7 +169,7 @@ function addItemsToTimeline() {
           duration: 1,
           ease: "power2.in"
         },
-        "<" // En même temps que le cover
+        "<"
       );
     }
   }
@@ -413,7 +412,7 @@ function addItemsToTimeline() {
 
   // ===== ANIMATION DU DEUXIÈME COVER - STYLE BRAWL STARS =====
   if (coverImage2 && songTitle2) {
-    const startTime = 16; // AJUSTEZ CE NOMBRE pour synchroniser avec la mosaïque
+    const startTime = 17; // AJUSTEZ CE NOMBRE pour synchroniser avec la mosaïque
     
     // ENTRÉE : Cover depuis la gauche, Titre depuis la droite
     tl.fromTo(
@@ -479,7 +478,7 @@ function addItemsToTimeline() {
         duration: 0.8,
         ease: "power2.in" // Accélération progressive
       },
-      "+=10" // Petite pause avant de sortir
+      "+=0.5" // Petite pause avant de sortir
     );
 
     tl.to(
